@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	/*伪劣类*/
+	/*向未被访问的添加*/
+	a:link{
+		color: red;
+	}
+	/*向被访问过的的添加*/
+	a:visited{
+		color: blue;
+	}
+	/*向鼠标悬停的的添加*/
+	a:hover{
+		background: pink;
+
+	}
+	/*向被激活的元素添加*/
+	/*鼠标点击与放开时激活*/
+	a:active{
+		font-size: 50px;
+
+	}
+	/* 键盘必须有焦点*/
+	input:focus{
+		background: red;
+
+	}
+
+	p:first-child b{
+		color: red;
+	}
+
+
+	</style>
+</head>
+<body>
+<a href="#">link1</a>
+<input type="text" >
+<p><b>1</b>+2=3</p>
+</body>
+</html>
