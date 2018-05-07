@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0; padding: 0;
+		}
+		html,body {
+			width: 100%;
+			height: 10000px;
+		}
+		.header {
+			width: 100%;
+			height: 100px;
+			background: #050505;
+			position: fixed;
+			left: 0; top: 0;
+			z-index: 10000;
+		}
+		.header .logo {
+			width: 50px; height: 50px;
+			background: url(img/global-logo-red@2x.85550cd7bec73c98adacee227ba6a8a0.png) no-repeat;
+			background-size: cover;
+			position: absolute;
+			left: 100px; top: 30px;
+		}
+		.header .logo:hover {
+			cursor: pointer;
+		}
+		.header .header-nav {
+			list-style: none;
+			position: absolute;
+			left: 450px; top: 40px;
+		}
+		.header .header-nav li {
+			color: #c8c8c8;
+			float: left;
+			font-size: 14px;
+			margin-left: 50px;
+		}
+		.header .header-nav li:hover {
+			cursor: pointer;
+			color: white;
+		}
+		.usercenter {
+			display: block; width: 20px; height: 20px; 
+			background: url(img/account-icon.32d87deb02b3d1c3cc5bcff0c26314ac.png) -67px 0px;
+		}
+		.shopping-cart {
+			display: block; width: 20px; height: 20px; 
+			background: url(img/account-icon.32d87deb02b3d1c3cc5bcff0c26314ac.png) -67px -21px;
+		}
+		.cart-count {
+			display: block; width: 20px; height: 20px; 
+			background: #9A9A9A; border-radius: 50%;
+			color: #F9F9F9;
+			text-align: center;
+			line-height: 20px;
+		}
+		
+	</style>
+	<body>
+		<div class="header">
+			<div class="logo">
+			</div>
+			
+			<ul class="header-nav">
+				<li>在线商城</li>
+				<li>坚果Pro</li>
+				<li>Smatisan OS</li>
+				<li>欢喜云</li>
+				<li>应用下载</li>
+				<li>官方论坛</li>
+				
+				<li>
+					<span class="usercenter"></span>
+				</li>
+				<li>
+					<span class="shopping-cart">
+					</span>
+				</li>
+				<li style="margin-left: 2px;">
+					<span class="cart-count">
+						0
+					</span>
+				</li>
+			</ul>
+		</div>
+		
+		<style type="text/css">
+			.banner {
+				margin: 200px auto;
+				width: 1220px; height: 554px;
+				position: relative;
+			}
+			.banner .imgs li {
+				list-style: none;
+				width: 1220px; height: 500px;
+				overflow: hidden;
+				border-radius: 20px;
+			}
+			.banner .nav {
+				position: absolute;
+				left: 40%; bottom: 80px;
+			}
+			.banner .nav li{
+				list-style: none;
+				width: 10px; height: 10px;
+				background: white;
+				border-radius: 50%;
+				float: left;
+				margin-left: 20px;
+			}
+			
+		</style>
+		
+		<div class="banner">
+			<ul class="imgs">
+				<li style="background: url(img/SJ1.png) 0px -28px;"></li>
+				<li></li>
+			</ul>
+			
+			<ul class="nav">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<style>
+			.backtop {
+				width: 54px; height: 54px;
+				background: url(img/arrow_up.e06a918c6b2be8e0617dbaa8675c3e02.png) no-repeat;
+				position: fixed;
+				right: 30px; bottom: -100px;
+				cursor: pointer;
+				transition: all 0.5s;
+			}
+		</style>
+		<div class="backtop">
+			
+		</div>
+	</body>
+	<script src="js/jquery-2.0.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(window).scroll(function(){
+			var _scrolltop = $(this).scrollTop();
+			if(_scrolltop > 500) {
+				//右下角出现回滚按钮
+				$(".backtop").css({bottom: 50});
+			} else {
+				//回滚按钮消失
+				$(".backtop").css({bottom: -100});
+			}
+		});
+		
+		$(".backtop").click(function(){
+			$(window).scrollTop(0);
+		});
+	</script>
+</html>

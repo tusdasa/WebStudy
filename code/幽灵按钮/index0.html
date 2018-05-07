@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0; padding: 0;
+			/* 给元素增加阴影(不影响元素实际大小)，左起：X坐标，Y坐标, 模糊值，向外扩展宽度,颜色  */
+			/*box-shadow: 0 0 0px 1px black;*/ 
+			background: #666;
+		}
+		html,body {
+			overflow: hidden;
+		}
+		.box {
+			width: 900px;
+			height: 400px;
+			margin: 50px auto;
+		}
+		.box .section {
+			width: 300px;
+			height: 400px;
+			float: left;
+		}
+		.box .section .img {
+			width: 300px; height: 300px;
+		}
+		.box .section .img:hover {
+			/* transition 表示过渡效果 */
+			transition: all 0.6s;
+			/* transform 表示变形， rotateZ(3660deg)表示沿着Z轴顺时针旋转360deg */
+			transform: rotateZ(3600deg);
+		}
+		.box .section .btn {
+			width: 220px;
+			height: 60px;
+			line-height: 60px;
+			color: lightgreen;
+			font-weight: bold;
+			position: relative;
+			padding-left: 60px;
+		}
+		.box .section .btn:hover img{
+			right: 30px;
+		}
+		.box .section .btn:hover .line-top {
+			width: 280px; left: 0;
+		}
+		.box .section .btn:hover .line-right {
+			height:60px; top: 0;
+		}
+		.box .section .btn:hover .line-left {
+			height: 60px; top: 0;
+		}
+		.box .section .btn:hover .line-bottom {
+			width: 280px; right: 0;
+		}
+		
+		.box .section .btn img {
+			transition: all 0.6s;
+			position: absolute;
+			right: 100px;
+			top: 20px;
+		}
+		
+		.box .section .btn .line-top {
+			position: absolute;
+			left: -200px;
+			top: 0px;  
+			width: 0px; height: 2px;
+			background: white;
+			transition: all 0.6s;
+		}
+		.box .section .btn .line-left {
+			position: absolute;
+			left: 0px;
+			top: 120px;  
+			width: 2px; height: 0px;
+			background: white;
+			transition: all 0.6s;
+		}
+		.box .section .btn .line-right {
+			position: absolute;
+			right: 0px;
+			top: -60px;  
+			width: 2px; height: 0px;
+			background: white;
+			transition: all 0.6s;
+		}
+		.box .section .btn .line-bottom {
+			position: absolute;
+			right: -300px;
+			top: 60px;  
+			width: 0px; height: 2px;
+			background: white;
+			transition: all 0.6s;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="section">
+				<div class="img" style="background: url(img/mission.png) no-repeat center;"></div>
+				<div class="btn">
+					MISSION
+					<img src="img/allow.png"/>
+					<span class="line-top"></span>
+					<span class="line-left"></span>
+					<span class="line-right"></span>
+					<span class="line-bottom"></span>
+				</div>
+			</div>
+			<div class="section">
+				<div class="img" style="background: url(img/play.png) no-repeat center;"></div>
+				<div class="btn">
+					PLAY
+					<img src="img/allow.png"/>
+					<span class="line-top"></span>
+					<span class="line-left"></span>
+					<span class="line-right"></span>
+					<span class="line-bottom"></span>
+				</div>
+			</div>
+			<div class="section">
+				<div class="img" style="background: url(img/touch.png) no-repeat center;"></div>
+				<div class="btn">
+					TOUCH
+					<img src="img/allow.png"/>
+					<span class="line-top"></span>
+					<span class="line-left"></span>
+					<span class="line-right"></span>
+					<span class="line-bottom"></span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

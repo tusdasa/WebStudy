@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.daojishi {
+			width: 150px;
+			height: 40px;
+			background: url(img/home_miaosha.png) no-repeat center;
+			position: relative;
+		}
+		
+		.daojishi span {
+			position: absolute;
+			color: #888;
+			top:6px;
+		}
+	</style>
+	<body>
+		<div class="daojishi">
+			<span style="left:43px;">0</span>
+			<span style="left:80px;">0</span>
+			<span style="left:117px;">0</span>
+		</div>
+	</body>
+	<script src="js/jquery-2.0.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var total = 3600*4;
+		
+		setInterval(function(){
+			total--;
+			var hour = parseInt(total/3600);
+			$("span").eq(0).text(hour<10?"0"+hour:hour);
+			
+			var minute = parseInt((total - 3600*hour)/60);
+			$("span").eq(1).text(minute);
+			
+			var second = total%60;
+			$("span").eq(2).text(second);
+		},1000);
+	</script>
+</html>

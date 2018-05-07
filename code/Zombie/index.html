@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		#bgm {
+			background: url(img/background1unsodded.jpg) no-repeat;
+			width: 1400px; height: 700px;
+		}
+		#sod {
+			width: 0; height: 117px;
+			background: url(img/sod1row.png);
+			position: absolute;
+			left: 255px; top: 262px;
+		}
+		#shooter {
+			width: 71px; height: 71px;
+			background: url(img/Peashooter.gif);
+			position: absolute;
+			left: 270px; top: 260px;
+			display: none;
+		}
+		#zomb {
+			width: 166px; height: 144px;
+			background: url(img/Zombie2.gif);
+			position: absolute;
+			left: 900px; top: 200px;
+			display: none;
+		}
+		.bullet {
+			position: absolute;
+			left: 340px; top: 260px;
+		}
+		.head {
+			width: 150px;
+			height: 186px;
+			background: url(img/ZombieHead.gif);
+		}
+	</style>
+	<body>
+		<div id="bgm"></div>
+		<div id="sod"></div>
+		<div id="shooter"></div>
+		<div id="zomb"></div>
+	</body>
+	
+	<script src="js/jquery-2.0.3.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+		//将草坪使用10秒钟的时间展开
+		$("#sod").animate({
+			width : 755
+		}, 5000);
+		
+		//当草坪展开后，出现豌豆射手和僵尸
+		setTimeout(function(){
+			$("#shooter").css("display","block");
+			$("#zomb").css("display", "block");
+			//让僵尸移动
+			$("#zomb").animate({
+				left : 0
+			}, 60000);
+			
+			//每隔3秒创建一颗子弹
+			setInterval(function(){
+				//创建一颗子弹
+				var bullet = $("<img src='img/PB01.gif'>");
+				bullet.addClass("bullet");
+				$(document.body).append(bullet);
+				
+				//让子弹飞
+				bullet.animate({
+					left: 1200
+				}, 3000);
+				
+				//创建一个监视器，用来监视这颗子弹是否打中僵尸
+				setInterval(function(){
+					//当子弹的left 》 僵尸的left
+					if(bullet.offset().left > ($("#zomb").offset().left+70) ) {
+						bullet.stop().remove();
+						$("#zomb").stop().css({
+							background : "url(img/ZombieDie.gif)"
+						});
+						
+						var head = $("<div>");
+						head.addClass("head");
+						$("#zomb").append(head);
+						
+						setTimeout(function(){
+							$("#zomb").remove();
+						}, 2000);
+					}
+				}, 30);
+				
+				//3秒后停止并删除子弹
+				setTimeout(function(){
+					bullet.stop();
+					bullet.remove();
+				},3000);
+			}, 3000);
+			
+		}, 5000);
+		
+		
+		
+		
+	</script>
+	
+</html>
